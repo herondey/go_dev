@@ -1,10 +1,10 @@
 package animals
 
-import(
+import (
 	"testing"
 )
 
-func TestTigerFeed(t *testing.T){
+func TestTigerFeed(t *testing.T) {
 	expect := "meat"
 	actual := TigerFeed()
 
@@ -13,7 +13,7 @@ func TestTigerFeed(t *testing.T){
 	}
 }
 
-func TestMonkeyFeed(t *testing.T){
+func TestMonkeyFeed(t *testing.T) {
 	expect := "banana"
 	actual := MonkeyFeed()
 
@@ -22,13 +22,11 @@ func TestMonkeyFeed(t *testing.T){
 	}
 }
 
-
-func TestRabbitFeed(t *testing.T){
+func TestRabbitFeed(t *testing.T) {
 	expect := "carrot"
 	actual := RabbitFeed()
 
-	if expect != actual{
+	if expect != actual {
 		t.Errorf("%s != %s", expect, actual)
 	}
 }
-
