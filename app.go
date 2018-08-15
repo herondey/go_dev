@@ -1,6 +1,12 @@
 package main
 
-//AppName はアプリの名称を返却します
-func AppName() string {
-	return "kuso appli"
+import (
+	f "fmt"
+)
+
+const appint = 1
+
+//appName とは
+func appName() {
+	f.Println("kuso app")
 }
