@@ -5,6 +5,7 @@ import (
 	//vscodeだと警告がでる
 	//"./animals"
 	"github.com/herondey/go_dev/animals"
+	"math"
 )
 
 func main() {
@@ -13,4 +14,5 @@ func main() {
 	fmt.Println(animals.MonkeyFeed())
 	fmt.Println(animals.TigerFeed())
 	fmt.Println(animals.RabbitFeed())
+	fmt.Printf("%d\n", math.MaxUint32)
 }
