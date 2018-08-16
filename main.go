@@ -5,18 +5,22 @@ import (
 	//↓vscodeだと警告がでるので、full pathでの指定が良い
 	//"./animals"
 	//"github.com/herondey/go_dev/animals"
-	"math"
+	_ "math"
+	"runtime"
 )
 
-const ONE = 1
+func subLoop(){
+	defer func(){
+		fmt.Println(" sub loop end")
+	}()
 
-func one() (int, interface{}) {
-
-	return ONE, nil
+	for i:=0;i<20;i++{
+		fmt.Println(" sub loop", i)
+	}
 }
 
 func main() {
-	fmt.Printf("%d\n", math.MaxUint32)
+
 	/*
 		fmt.Println(AppName())
 		fmt.Println(animals.MonkeyFeed())
@@ -24,25 +28,13 @@ func main() {
 		fmt.Println(animals.RabbitFeed())
 	*/
 
-	x, y := one()
-	fmt.Printf("%d %d\n", x, y)
+	go subLoop()
 
-	var a, b int
-	a = 2
-	b = 3
-
-	if n := a * b; n > 10 {
-		fmt.Println("10より大きい")
-	} else {
-		fmt.Println("10より小さい")
+	for i := 0; i < 20; i++ {
+		fmt.Println("main loop", i)
 	}
 
-	//fmt.Printf("%d\n", n)
-
-	if _, err := one(); err != nil {
-		fmt.Println("error !!")
-	} else {
-		fmt.Println("no error !!")
-	}
-
+	fmt.Printf("Num CPU %d\n", runtime.NumCPU())
+	fmt.Printf("Num Goroutine %d\n", runtime.NumGoroutine())
+	fmt.Printf("Version %d\n", runtime.Version())
 }
